@@ -1,0 +1,27 @@
+
+ <div class="wrapper">
+  <div class="text-center mt-2 mb-3 name">Enter OTP</div>
+ 
+  <form class="p-1 mt-2" #userlogin="ngForm" (ngSubmit)="Verify()">
+    <div class="form-field d-flex align-items-center">
+     <i class="fa-solid fa-key"></i>
+      <input
+        type="password"
+        name="otp"
+        id="otp"
+        minlength="4"
+        maxlength="4"
+        placeholder="OTP"
+        [(ngModel)]="User.otp"
+        #otp="ngModel"
+        [class.is-invalid]="otp.invalid"
+        required
+      />
+      <small [class.d-none]="otp.valid" class="px-3 text-danger">χ</small>
+      <small [class.d-none]="otp.invalid" class="px-3 text-success">✓</small>
+    </div>
+    <button class="btn mt-3 mb-1" [disabled]="userlogin.form.invalid">
+      SUBMIT
+    </button>
+  </form>
+ </div>
